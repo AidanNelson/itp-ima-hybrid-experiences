@@ -1,6 +1,8 @@
 import { io } from "socket.io-client";
 import { SimpleMediasoupPeer } from "simple-mediasoup-peer-client";
-var request = require("request");
+// var request = require("request");
+import "../../assets/css/bootstrap.min.css";
+import "../../assets/css/app.css";
 
 let socket;
 let mediasoupPeer;
@@ -23,13 +25,13 @@ window.onload = init;
 function init() {
   console.log("~~~~~~~~~~~~~~~~~");
 
-  if (process.env.ENVIRONMENT === "dev") {
-    // for local development
-    socket = io("https://localhost:3095/", { path: "/socket.io" });
-  } else {
-    // for production
-    socket = io("https://yorb.itp.io/", { path: "/hybrid/socket.io" });
-  }
+  // if (process.env.ENVIRONMENT === "dev") {
+  //   // for local development
+  //   socket = io("https://localhost:3095/", { path: "/socket.io" });
+  // } else {
+  // for production
+  socket = io("https://yorb.itp.io/", { path: "/hybrid/socket.io" });
+  // }
 
   mediasoupPeer = new SimpleMediasoupPeer(socket);
   mediasoupPeer.on("track", gotTrack);
@@ -54,7 +56,8 @@ function init() {
   socket.on("clientDisconnected", (id) => {
     console.log("Client disconencted:", id);
     delete peers[id];
-    if (Object.keys(peers).length === 0) document.getElementById("peersVideosPlaceHolder").hidden = false;
+    if (Object.keys(peers).length === 0)
+      document.getElementById("peersVideosPlaceHolder").hidden = false;
     document.getElementById(id + "_video").remove();
   });
 
@@ -401,24 +404,24 @@ recognition.onerror = function (event) {
 
 //*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//
 // ask for help, doorbell, knock desk
-const doorbellSound = document.getElementById("doorbellSound");
-const doorbellButton = document.getElementById("doorbellButton");
-const knockButton = document.getElementById("knockButton");
-doorbellButton.addEventListener("click", () => {
-  doorbellSound.play();
-});
+// const doorbellSound = document.getElementById("doorbellSound");
+// const doorbellButton = document.getElementById("doorbellButton");
+// const knockButton = document.getElementById("knockButton");
+// doorbellButton.addEventListener("click", () => {
+//   doorbellSound.play();
+// });
 
-knockButton.addEventListener("click", () => {
-  request.post(
-    `https://${window.location.host}:${window.location.port}/motor`,
-    {},
-    function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        console.log(body);
-      }
-    }
-  );
-});
+// knockButton.addEventListener("click", () => {
+//   request.post(
+//     `https://${window.location.host}:${window.location.port}/motor`,
+//     {},
+//     function (error, response, body) {
+//       if (!error && response.statusCode == 200) {
+//         console.log(body);
+//       }
+//     }
+//   );
+// });
 
 //*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//
 // chat box
