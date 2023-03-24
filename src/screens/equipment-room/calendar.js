@@ -1,19 +1,20 @@
-import { Calendar } from '@fullcalendar/core';
-import listPlugin from '@fullcalendar/list';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import { Calendar } from "@fullcalendar/core";
+import listPlugin from "@fullcalendar/list";
+import googleCalendarPlugin from "@fullcalendar/google-calendar";
 
+const API_KEY = "AIzaSyCeDe2K2aCgZB_qr0n58bPRJOtXCNJQgeQ";
+const googleCalendarID =
+  "nyu.edu_jmn8eqiarfitb8fd1crpne27ik@group.calendar.google.com";
 
-
-let API_KEY = 'AIzaSyCeDe2K2aCgZB_qr0n58bPRJOtXCNJQgeQ';
-let googleCalendarID = 'nyu.edu_jmn8eqiarfitb8fd1crpne27ik@group.calendar.google.com';
-
-let listCalendar = new Calendar(document.getElementById('listCalendar'), {
+export const listCalendar = new Calendar(
+  document.getElementById("listCalendar"),
+  {
     plugins: [googleCalendarPlugin, listPlugin],
     googleCalendarApiKey: API_KEY,
     events: {
-        googleCalendarId: googleCalendarID
+      googleCalendarId: googleCalendarID,
     },
-    initialView: 'listMonth',
+    initialView: "listMonth",
 
     // listDayFormat: { // will produce something like "Tuesday, September 18, 2018"
     //     weekday: 'long',
@@ -44,25 +45,21 @@ let listCalendar = new Calendar(document.getElementById('listCalendar'), {
     //     right: ''
     // },
 
-
     // eventClick: function (info) {
     //     info.jsEvent.preventDefault(); // don't let the browser navigate
 
     // }
-
-});
-
-
-
+  }
+);
 
 // monthCalendar.render();
 listCalendar.render();
 listCalendar.refetchEvents();
-console.log('getting calendar events');
+console.log("getting calendar events");
 
 // refetch events every 120 seconds
 setInterval(() => {
-    // monthCalendar.refetchEvents();
-    listCalendar.refetchEvents();
-    console.log("Updating Calendars...");
+  // monthCalendar.refetchEvents();
+  listCalendar.refetchEvents();
+  console.log("Updating Calendars...");
 }, 120000);

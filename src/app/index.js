@@ -27,8 +27,8 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      allowRunningInsecureContent: true,
-      webSecurity: false,
+      // allowRunningInsecureContent: true,
+      // webSecurity: false,
       // preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });

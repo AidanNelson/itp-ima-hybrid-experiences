@@ -3,6 +3,7 @@ import { SimpleMediasoupPeer } from "simple-mediasoup-peer-client";
 // var request = require("request");
 import "../../assets/css/bootstrap.min.css";
 import "../../assets/css/app.css";
+import { ListCalendar } from "./calendar.js";
 
 let socket;
 let mediasoupPeer;
@@ -361,46 +362,46 @@ function resumeMic() {
 //*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//
 // speech recognition & transcription
 
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-var SpeechRecognitionEvent =
-  SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+// var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+// var SpeechRecognitionEvent =
+//   SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
-var recognition = new SpeechRecognition();
-let started = false;
-recognition.continuous = true;
-recognition.lang = "en-US";
-recognition.interimResults = false;
-recognition.maxAlternatives = 1;
+// var recognition = new SpeechRecognition();
+// let started = false;
+// recognition.continuous = true;
+// recognition.lang = "en-US";
+// recognition.interimResults = false;
+// recognition.maxAlternatives = 1;
 
-let transcriptElement = document.getElementById("transcript");
+// let transcriptElement = document.getElementById("transcript");
 
-window.onbeforeunload = function () {
-  recognition.stop();
-  console.log("stop recording");
-  return undefined;
-};
+// window.onbeforeunload = function () {
+//   recognition.stop();
+//   console.log("stop recording");
+//   return undefined;
+// };
 
-document.body.onclick = function () {
-  if (started) return;
-  started = true;
-  recognition.start();
-  console.log("start recording");
-};
+// document.body.onclick = function () {
+//   if (started) return;
+//   started = true;
+//   recognition.start();
+//   console.log("start recording");
+// };
 
-recognition.onresult = function (event) {
-  res = event.results[event.results.length - 1];
-  console.log(res[0].confidence, res[0].transcript);
-  transcriptElement.textContent = ": " + res[0].transcript;
-};
+// recognition.onresult = function (event) {
+//   res = event.results[event.results.length - 1];
+//   console.log(res[0].confidence, res[0].transcript);
+//   transcriptElement.textContent = ": " + res[0].transcript;
+// };
 
-recognition.onnomatch = function (event) {
-  transcriptElement.textContent = "I didn't recognise.";
-};
+// recognition.onnomatch = function (event) {
+//   transcriptElement.textContent = "I didn't recognise.";
+// };
 
-recognition.onerror = function (event) {
-  transcriptElement.textContent =
-    "Error occurred in recognition: " + event.error;
-};
+// recognition.onerror = function (event) {
+//   transcriptElement.textContent =
+//     "Error occurred in recognition: " + event.error;
+// };
 
 //*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//*//
 // ask for help, doorbell, knock desk
