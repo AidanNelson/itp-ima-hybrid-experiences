@@ -1,15 +1,19 @@
 import { Calendar } from "@fullcalendar/core";
 import listPlugin from "@fullcalendar/list";
 import googleCalendarPlugin from "@fullcalendar/google-calendar";
+import bootstrapPlugin from "@fullcalendar/bootstrap";
 
 const API_KEY = "AIzaSyCeDe2K2aCgZB_qr0n58bPRJOtXCNJQgeQ";
 const googleCalendarID =
   "nyu.edu_jmn8eqiarfitb8fd1crpne27ik@group.calendar.google.com";
 
+const name = Calendar.name;
+
 export const listCalendar = new Calendar(
   document.getElementById("listCalendar"),
   {
-    plugins: [googleCalendarPlugin, listPlugin],
+    themeSystem: "bootstrap",
+    plugins: [googleCalendarPlugin, listPlugin, bootstrapPlugin],
     googleCalendarApiKey: API_KEY,
     events: {
       googleCalendarId: googleCalendarID,

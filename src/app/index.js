@@ -9,7 +9,7 @@ app.on("web-contents-created", (event, contents) => {
       responseHeaders: {
         ...details.responseHeaders,
         "Content-Security-Policy": [
-          "default-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:3000 https://yorb.itp.io wss://yorb.itp.io",
+          "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: http://localhost:3000 https://yorb.itp.io wss://yorb.itp.io https://www.googleapis.com;",
         ],
       },
     });
@@ -26,7 +26,12 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    nodeIntegration: true,
+
     webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      webSecurity: false, // Disable web security
       // allowRunningInsecureContent: true,
       // webSecurity: false,
       // preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,

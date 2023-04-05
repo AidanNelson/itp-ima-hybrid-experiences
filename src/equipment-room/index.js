@@ -18,12 +18,12 @@ window.onload = init;
 function init() {
   console.log("~~~~~~~~~~~~~~~~~");
 
-  // socket = io("https://yorb.itp.io", {
-  //   path: "/hybrid/socket.io"
-  // });
-  socket = io( `https://${window.location.host}:65156`, {
-    path: "/socket.io"
+  socket = io("https://yorb.itp.io", {
+    path: "/hybrid/socket.io",
   });
+  // socket = io( `https://${window.location.host}:65156`, {
+  //   path: "/socket.io"
+  // });
 
   socket.on("clients", (ids) => {
     console.log("Got initial clients!");
@@ -163,7 +163,7 @@ class PortalScene {
     // const dracoURL = "./draco";
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath(
-      "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/js/libs/draco/"
+      "https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/jsm/libs/draco/"
     );
     // dracoLoader.setDecoderConfig({ type: "wasm" });
     console.log(dracoLoader);
@@ -185,13 +185,16 @@ class PortalScene {
   }
 
   addWebcamVideo(videoEl) {
-    console.log('adding webcam video', videoEl);
+    console.log("adding webcam video", videoEl);
     const geometry = new THREE.PlaneGeometry(4, 4);
     // invert the geometry on the x-axis so that all of the faces point inward
     // geometry.scale(-1, 1, 1);
 
     const texture = new THREE.VideoTexture(videoEl);
-    const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
+      side: THREE.DoubleSide,
+    });
 
     const mesh = new THREE.Mesh(geometry, material);
 
@@ -214,10 +217,13 @@ class PortalScene {
       envMap: this.cubeRenderTarget.texture,
       roughness: 0.01,
       metalness: 0.99,
-      side: THREE.DoubleSide
+      side: THREE.DoubleSide,
     });
 
-    const sphere = new THREE.Mesh(new THREE.IcosahedronGeometry(5, 8), material);
+    const sphere = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(5, 8),
+      material
+    );
     this.scene.add(sphere);
   }
 
@@ -248,7 +254,6 @@ class PortalScene {
       console.log(gltf.scene.children[0].material);
       gltf.scene.position.set(0, -this.portalHeight / 2, -5);
     });
-
   }
 
   addEquirectangularVideo(videoEl) {
@@ -348,7 +353,6 @@ class PortalScene {
   }
 
   loop() {
-
     // controls wander back to center
     this.cubeCamera.update(this.renderer, this.scene);
     this.renderer.render(this.scene, this.camera);
@@ -401,9 +405,7 @@ class PortalScene {
     gl.colorMask(false, false, false, false);
     gl.depthMask(false);
 
-
     this.renderer.render(this.scene, this.camera);
-
 
     // SECOND PASS
 
@@ -423,7 +425,6 @@ class PortalScene {
 
     this.camera.layers.set(0); // layer 0 contains everything but plane
 
-
     this.cubeCamera.update(this.renderer, this.scene);
     this.renderer.render(this.scene, this.camera);
   }
@@ -438,8 +439,6 @@ class PortalScene {
     this.camera.aspect = this.width / this.height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(this.width, this.height);
-
-
   }
 
   onMouseMove(event) {
@@ -451,6 +450,5 @@ class PortalScene {
   }
 }
 
-
-
-const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
+const map = (value, x1, y1, x2, y2) =>
+  ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
