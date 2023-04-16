@@ -1,7 +1,7 @@
 {
-  "name": "virtual-venue-client",
+  "name": "hybrid-itp-ima",
   "version": "1.0.0",
-  "description": "Repo for Virtual Venue",
+  "description": "Hybrid experiences at NYU's Interactive Telecommunications Program (ITP) & Interactive Media Arts (IMA)",
   "main": ".webpack/main",
   "scripts": {
     "start-server": "export ENVIRONMENT=dev && node server/index.js",
