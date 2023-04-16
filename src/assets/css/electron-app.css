@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url(../fonts/Open_Sans/static/OpenSans_Condensed-Medium.ttf)
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url(../fonts/Oswald/static/Oswald-Medium.ttf) format("truetype");
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #ff00cc, #00ffcc, #cc00ff, #ff0066);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.infoCard {
+  max-height: 240px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+/* infoCard scrollbar: Width */
+.infoCard::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* infoCard scrollbar:Track */
+.infoCard::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* infoCard scrollbar:Handle */
+.infoCard::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* infoCard scrollbar:Handle on hover */
+.infoCard::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.transcriptionArea {
+  max-height: 40px;
+  overflow: scroll;
+  overflow-x: hidden;
+}

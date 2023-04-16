@@ -29,11 +29,11 @@ module.exports = {
           config: "./webpack.renderer.config.js",
           entryPoints: [
             {
-              html: "./src/app/equipment-room/index.html",
-              js: "./src/app/equipment-room/index.js",
+              html: "./src/electron-app/equipment-room/index.html",
+              js: "./src/electron-app/equipment-room/index.js",
               name: "main_window",
               preload: {
-                js: "./src/app/preload.js",
+                js: "./src/electron-app/preload.js",
               },
             },
           ],

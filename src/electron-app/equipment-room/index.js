@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import { SimpleMediasoupPeer } from "simple-mediasoup-peer-client";
 // var request = require("request");
 import "../../assets/css/bootstrap.min.css";
-import "../../assets/css/app.css";
+import "../../assets/css/electron-app.css";
 import { ListCalendar } from "./calendar.js";
 
 let socket;

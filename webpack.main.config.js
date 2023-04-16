@@ -3,7 +3,7 @@ module.exports = {
    * This is the main entry point for your application, it's the first file
    * that runs in the main process.
    */
-  entry: "./src/app/index.js",
+  entry: "./src/electron-app/index.js",
   // Put your normal webpack config below here
   module: {
     rules: require("./webpack.rules"),
