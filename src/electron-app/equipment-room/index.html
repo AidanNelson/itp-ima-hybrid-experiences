@@ -6,51 +6,47 @@
 
   <body>
     <div class="container-fluid h-100">
-      <div class="row p-3 h-100">
-        <div class="col h-100">
+      <div class="row h-100 p-3 justify-content-center">
+        <div class="col h-100 d-flex flex-column">
           <!-- HEADER -->
           <div class="row justify-content-center border">
             <div class="col text-center p-0 m-0">
-              <h1
-                class="m-0 p-3"
-                style="
-                  color: rgb(255, 255, 255);
-                  background-color: rgb(90, 65, 255);
-                "
-              >
-                Hybrid ITP
-              </h1>
+              <h1 class="m-0 p-3">Hybrid ITP</h1>
+            </div>
+          </div>
+          <!-- SUBHEADER -->
+          <div class="row justify-content-center border">
+            <div class="col text-center p-0 m-0">
+              <h3 class="m-0 p-3">
+                Join ITP / IMA remotely at https://hybrid.itp.io
+              </h3>
             </div>
           </div>
 
-          <!-- PEERS' VIDEOES -->
-          <div
-            class="row justify-content-center border p-1"
-            style="height: 40vh"
-          >
+          <!-- PEER VIDEOS -->
+          <div class="row justify-content-center border">
             <div class="col">
-              <div class="row">
-                <h5
-                  style="
-                    color: rgb(255, 255, 255);
-                    background-color: rgb(90, 65, 255);
-                  "
-                >
-                  PEERS VIDEOES
-                </h5>
+              <div class="row justify-content-center">
+                <h5 class="m-0 p-3">Say Hello!</h5>
               </div>
-              <div style="display: none" class="row" style="min-height: 200px">
-                <div class="row" id="peersVideos">
-                  <div class="text-center h-100" id="peersVideosPlaceHolder">
-                    <p>no one here yet...</p>
-                  </div>
+              <div class="row" id="peersVideos">
+                <div class="text-center h-100" id="peersVideosPlaceHolder">
+                  <p>no one here yet...</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div style="display: none" class="row" style="height: 400px">
-            <!-- SELF VIEW & CONTROLS -->
+          <!-- CALENDAR -->
+          <div
+            class="row justify-content-center border flex-grow-1"
+            style="flex-grow: inherit"
+          >
+            <div id="listCalendar" class="w-100"></div>
+          </div>
+
+          <!-- SELF VIEW & CONTROLS -->
+          <div style="display: none" class="row">
             <div class="col-md-6 border">
               <div class="row p-1">
                 <h5
@@ -71,7 +67,7 @@
                 </div>
               </div>
 
-              <!-- LOBBY CONTROLS -->
+              <!-- VIDEO CONTROLS -->
               <div class="row d-flex justify-content-center align-items-center">
                 <div class="col">
                   <label for="videoSource"
@@ -104,6 +100,7 @@
                 </div>
               </div>
             </div>
+
             <!-- 360VIEW -->
             <div style="display: none" class="col-md-6 h-100">
               <div class="row justify-content-center border p-1 h-100">
@@ -118,19 +115,9 @@
                       360VIEW
                     </h5>
                   </div>
-                  <!-- <div class="row">  -->
-                  <!-- <iframe
-                    src="https://10.18.43.156:3095/equipment-room/"
-                  ></iframe> -->
-                  <!-- </div> -->
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- CALENDAR -->
-          <div class="row justify-content-center border p-1">
-            <div id="listCalendar" class="w-100" style="max-height: 40vh"></div>
           </div>
 
           <!-- CHAT BOX -->
@@ -146,14 +133,15 @@
             >
               CHAT BOX
             </h5>
-            <div class="col" style="height: 120px">
+            <div class="col">
               <input id="chatContent" type="text" />
               <input id="chatSend" type="submit" value="SEND" />
             </div>
-            <div class="col" style="height: 120px">
+            <div class="col">
               <p id="chatHistory"></p>
             </div>
           </div>
+          <!--  -->
         </div>
       </div>
     </div>
