@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 import { SimpleMediasoupPeer } from "simple-mediasoup-peer-client";
-import { UserMediaControls } from "../libs/UserMediaControls";
+import { UserMediaControls } from "../assets/libs/UserMediaControls";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { FlakesTexture } from "three/examples/jsm/textures/FlakesTexture.js";
